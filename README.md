@@ -40,7 +40,7 @@ We present common locations and `terminal` commands to find the data required.  
     - words
     - words
     
- 6.  Finding your Drupal and Fedora database names
+ 6. Finding your Drupal and Fedora database names
     - words
     - words
 
@@ -91,6 +91,7 @@ We present common locations and `terminal` commands to find the data required.  
 > Advanced ways of copying these large files and folders are explored In section Copying Large Folders and Files (i.e., methods faster than `rsync`) .
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NjQzOTExNTksNjA5NDkwMzk1LC0xMT
-EyMDcwMTk1LDYxNDc0NTk5OSw4MzQyNDMzNDldfQ==
+eyJoaXN0b3J5IjpbOTc4Mzk4OTQxLC0xNTY0MzkxMTU5LDYwOT
+Q5MDM5NSwtMTExMjA3MDE5NSw2MTQ3NDU5OTksODM0MjQzMzQ5
+XX0=
 -->
