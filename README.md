@@ -15,11 +15,11 @@ If you are uncomfortable do not hesitate to ask an ISLE Maintainer, ask fellow c
 ## Taking inventory of your existing Islandora Stack
 We present common locations and `terminal` commands to find the data required.  To test the presented common locations in terminal type `cd {LOCATION}`; you are successful if you can change into that directory and can record that location, otherwise use the command provided.
 
- - Locating your Fedora and Drupal (Islandora) data folders
-	 1. Finding your Fedora data folder
+ - Locating your Fedora and Drupal (Islandora) data folders  
+ 	 1. Finding your Fedora data folder  
 			 a. Common locations: `/usr/local/fedora` or `/usr/local/tomcat/fedora`
 			 b. Use find: `find / -type d -ipath '*fedora/data' -ls  2>/dev/null`
-	 2. Finding your Drupal data folder
+	 2. Finding your Drupal data folder  
 			 a. common locations: `/var/www/` (may be in a sub-folder) or   `/var/www/html`
 
  - MySQL passwords for both Fedora and Drupal _OR_ your MySQL root password.
@@ -81,5 +81,6 @@ We present common locations and `terminal` commands to find the data required.  
 	> Advanced ways of copying these large files and folders are explored In section Copying Large Folders and Files (i.e., methods faster than `rsync`) .
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjE0NzQ1OTk5LDgzNDI0MzM0OV19
+eyJoaXN0b3J5IjpbLTExMTIwNzAxOTUsNjE0NzQ1OTk5LDgzND
+I0MzM0OV19
 -->
