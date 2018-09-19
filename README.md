@@ -7,7 +7,7 @@ This guide is written for users of all levels of familiarity with Islandora and 
 
 We begin the process by [Taking inventory of your existing Islandora stack](#taking-inventory-of-your-existing-islandora-stack). In that section we find the paths (locations) of folders, files, usernames and passwords. There is an [Inventory Table](#inventory-table) that can be copied and used to record these data.  In the second section we copy the required files from your stack for use in ISLE. In the final section we prepare and launch your ISLE stack.
 
-If you are uncomfortable do not hesitate to ask an ISLE Maintainer, ask fellow community members on our [Google Group](..), or your local IT administrator for assistance. ISLE Maintainers are dedicated to all institutions.
+If you are uncomfortable do not hesitate to ask an ISLE Maintainer, ask fellow community members on our [Google Group](https://groups.google.com/forum/#!forum/islandora-isle), or your local IT administrator for assistance. ISLE Maintainers are dedicated to all institutions.
 
 > **Important Note**: some of these folders and files may be owned by another user and/or group that you cannot access with your user (`id`).   You may be required to request `sudo` privileges on your existing Islandora server from an IT administrator, or request that an IT administrator complete these steps for you.  
 
@@ -110,7 +110,7 @@ We present common locations and `terminal` commands to find the data required.  
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMzc4MTY1NzMsLTEyODI3ODM5NTksLT
-E1NjQzOTExNTksNjA5NDkwMzk1LC0xMTEyMDcwMTk1LDYxNDc0
-NTk5OSw4MzQyNDMzNDldfQ==
+eyJoaXN0b3J5IjpbMTIyMDAwNDU1NCwtMjAzNzgxNjU3MywtMT
+I4Mjc4Mzk1OSwtMTU2NDM5MTE1OSw2MDk0OTAzOTUsLTExMTIw
+NzAxOTUsNjE0NzQ1OTk5LDgzNDI0MzM0OV19
 -->
