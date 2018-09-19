@@ -21,6 +21,7 @@ We present common locations and `terminal` commands to find the data required.  
 		 b. Use find: `find / -type d -ipath '*fedora/data' -ls  2>/dev/null`
 	 2. Finding your Drupal data folder
 		 a. common locations: `/var/www/` (may be in a sub-folder) or   `/var/www/html`
+
  - MySQL passwords for both Fedora and Drupal _OR_ your MySQL root password.
 	 3. If you have your MySQL `root` password please skip to item 6.
 	 4. Finding your Fedora MySQL username and password
@@ -80,5 +81,5 @@ We present common locations and `terminal` commands to find the data required.  
 	> Advanced ways of copying these large files and folders are explored In section Copying Large Folders and Files (i.e., methods faster than `rsync`) .
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODM0MjQzMzQ5XX0=
+eyJoaXN0b3J5IjpbMTgzNjQwNzAxNSw4MzQyNDMzNDldfQ==
 -->
