@@ -28,7 +28,7 @@ We present common locations and `terminal` commands to find the data required.  
     - Common locations: `/var/www/` (may be in a sub-folder) or `/var/www/html`
     - words
 
-### MySQL passwords for both Fedora and Drupal _OR_ your MySQL root password.
+### MySQL data for both Fedora and Drupal _OR_ your MySQL root password.
 
  3. If you have your MySQL `root` password please skip to item 6.
 
@@ -91,7 +91,7 @@ We present common locations and `terminal` commands to find the data required.  
 > Advanced ways of copying these large files and folders are explored In section Copying Large Folders and Files (i.e., methods faster than `rsync`) .
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTc4Mzk4OTQxLC0xNTY0MzkxMTU5LDYwOT
-Q5MDM5NSwtMTExMjA3MDE5NSw2MTQ3NDU5OTksODM0MjQzMzQ5
-XX0=
+eyJoaXN0b3J5IjpbLTEyODI3ODM5NTksLTE1NjQzOTExNTksNj
+A5NDkwMzk1LC0xMTEyMDcwMTk1LDYxNDc0NTk5OSw4MzQyNDMz
+NDldfQ==
 -->
