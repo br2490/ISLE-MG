@@ -1,4 +1,5 @@
 
+
 # ISLE Migration Guide (how to migrate to ISLE from an existing Islandora instance)
 
 ## About this guide
@@ -10,30 +11,39 @@ If you are uncomfortable do not hesitate to ask an ISLE Maintainer, ask fellow c
 
 > **Important Note**: some of these folders and files may be owned by another user and/or group that you cannot access with your user (`id`).   You may be required to request `sudo` privileges on your existing Islandora server from an IT administrator, or request that an IT administrator complete these steps for you.  
 
-> **Caution** `sudo` grants elevated privileges on a server and comes great responsibility.  You will have the ability to do most anything including _deleting files_. Work with utmost care! If unsure always ask your IT administrator to take a `snapshot` before you begin your work (and tell them when your work is complete so they can remove the snapshot (they require disk space to store).
+> **Caution** `sudo` grants elevated privileges on a server and comes great responsibility.  You will have the ability to do most anything including _deleting files_. Work with utmost care! If unsure always ask your IT administrator to take a `snapshot` before you begin your work and tell them when your work is complete so they can remove the snapshot (they require disk space to store).
+
 ---
+
 ## Taking inventory of your existing Islandora Stack
 We present common locations and `terminal` commands to find the data required.  To test the presented common locations in terminal type `cd {LOCATION}`; you are successful if you can change into that directory and can record that location, otherwise use the command provided.
 
- - Locating your Fedora and Drupal (Islandora) data folders  
- 	 1. Finding your Fedora data folder  
-			 a. Common locations: `/usr/local/fedora` or `/usr/local/tomcat/fedora`  
-			 b. Use find: `find / -type d -ipath '*fedora/data' -ls  2>/dev/null`  
-	 2. Finding your Drupal data folder  
-			 a. common locations: `/var/www/` (may be in a sub-folder) or   `/var/www/html`  
-			 b. 
+### Locating your Fedora and Drupal (Islandora) data folders
 
- - MySQL passwords for both Fedora and Drupal _OR_ your MySQL root password.
-	 3. If you have your MySQL `root` password please skip to item 6.
-	 4. Finding your Fedora MySQL username and password
-		 a. 
-		 b.
-	 5. Finding your Drupal MySQL username and password
-		 a.
-		 b.
-	 6.  Finding your Drupal and Fedora database names
-		 a.
-		 b. 
+ 1. Finding your Fedora data folder
+    - Common locations: `/usr/local/fedora` or `/usr/local/tomcat/fedora`  
+    - Use find: `find / -type d -ipath '*fedora/data' -ls  2>/dev/null`
+             
+ 2. Finding your Drupal data folder  
+    - Common locations: `/var/www/` (may be in a sub-folder) or `/var/www/html`
+    - words
+
+### MySQL passwords for both Fedora and Drupal _OR_ your MySQL root password.
+
+ 3. If you have your MySQL `root` password please skip to item 6.
+
+ 4. Finding your Fedora MySQL username and password
+    - words
+    - words
+    
+ 5. Finding your Drupal MySQL username and password
+    - words
+    - words
+    
+ 6.  Finding your Drupal and Fedora database names
+    - words
+    - words
+
 ---
 ### Inventory Table
 |#| Inventory Item | Setting, Password, or Location | Note |
@@ -50,38 +60,37 @@ We present common locations and `terminal` commands to find the data required.  
 ---
 
 ## Prepare the files you are _required_ to have from your existing Islandora Stack.
-0. Login to your existing Islandora Server. 
-	1. Change directory to your `home directory` with `cd ~`. 
-	2. If you will be copying data to a remote server please have SSH access to that server. 
-1. SQL Dumps 
-	 - SQL dump of your Fedora database
-		- `mysqldump -u {FEDORA_USERNAME} -p {FEDORA_DATABASE_NAME} | gzip fedora.sql.gz`
-	 - SQL dump of your Drupal database
-		  - `mysqldump -u {DRUPAL_USERNAME} -p {DRUPAL_DATABASE_NAME} | gzip drupal.sql.gz`
-	> **Note**  you may add your password directly to the commands below as: `-p{PASSWORD}` (no additional space).
-	This is **not** recommended as your shell history (e.g., `bash_history`) will have those passwords stored. You may delete your shell history when you are complete (`rm ~\.bash_history`)
-	**Note** If you have your MySQL root password replace {USERNAMES} with `root`
-  2. Drupal (Islandora) webroot
-		- Typical location: `/var/www/html` 
-		- 
- 3. Fedora Data	(these are large directories and copying takes time, please plan accordingly)
-	- Fedora datastreamStore
-		- < >
-	- Fedora objectStore
-		- < >
-	- Fedora resourceIndex
-		- < >
+ 0. Login to your existing Islandora Server. 
+    - Change directory to your `home directory` with `cd ~`. 
+    - If you will be copying data to a remote server please have SSH access to that server.
 
- - Specific Fedora data folders. These folders hold your archival objects and derivatives. 
- These folders are _large_.
-	- resourceIndex
-	- objectStore
-	- datastreamStore
+ 1. Generate SQL Dumps 
+    > **Note**  you may add your password directly to the commands below as: `-p{PASSWORD}` (no additional space).
+    This is **not** recommended as your shell history (e.g., `bash_history`) will have those passwords stored. You may delete your shell history when you are complete (`rm ~\.bash_history`)
 
-	>  **NOTE**: Before migration we recommend making copies of these folders to ensure your data is safe.
-	> Advanced ways of copying these large files and folders are explored In section Copying Large Folders and Files (i.e., methods faster than `rsync`) .
+    **Note** If you have your MySQL root password replace {USERNAMES} with `root`
+
+     - SQL dump of your Fedora database
+        - `mysqldump -u {FEDORA_USERNAME} -p {FEDORA_DATABASE_NAME} | gzip fedora.sql.gz`
+     - SQL dump of your Drupal database
+          - `mysqldump -u {DRUPAL_USERNAME} -p {DRUPAL_DATABASE_NAME} | gzip drupal.sql.gz`
+
+ 2. Drupal (Islandora) webroot
+      - < >
+
+ 3. Fedora Data (these are large directories and copying takes time, please plan accordingly)
+    - Fedora datastreamStore
+        - < >
+    - Fedora objectStore
+        - < >
+    - Fedora resourceIndex
+        - < >
+
+
+
+> Advanced ways of copying these large files and folders are explored In section Copying Large Folders and Files (i.e., methods faster than `rsync`) .
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjA5NDkwMzk1LC0xMTEyMDcwMTk1LDYxND
-c0NTk5OSw4MzQyNDMzNDldfQ==
+eyJoaXN0b3J5IjpbLTE1NjQzOTExNTksNjA5NDkwMzk1LC0xMT
+EyMDcwMTk1LDYxNDc0NTk5OSw4MzQyNDMzNDldfQ==
 -->
