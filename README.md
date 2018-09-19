@@ -18,31 +18,48 @@ If you are uncomfortable do not hesitate to ask an ISLE Maintainer, ask fellow c
 ## Taking inventory of your existing Islandora Stack
 We present common locations and `terminal` commands to find the data required.  To test the presented common locations in terminal type `cd {LOCATION}`; you are successful if you can change into that directory and can record that location, otherwise use the command provided.
 
-### Locating your Fedora and Drupal (Islandora) data folders
+### Locating your Fedora, Drupal (Islandora), and Solr data folders
 
  1. Finding your Fedora data folder
-    - Common locations: `/usr/local/fedora` or `/usr/local/tomcat/fedora`  
+    - Common locations: `/usr/local/fedora/data` or `/usr/local/tomcat/fedora/data`  
     - Use find: `find / -type d -ipath '*fedora/data' -ls  2>/dev/null`
              
  2. Finding your Drupal data folder  
-    - Common locations: `/var/www/` (may be in a sub-folder) or `/var/www/html`
-    - words
+    - Common location: `/var/www/` (may be in a sub-folder)
+    - `find / -type f -name 'index.php' -ls  2>/dev/null`
+
+ 3. Finding your Solr data folder  
+    - Common location: `/usr/local/solr`, `/usr/local/tomcat/solr`, or `/usr/local/fedora/solr`
+    - `find / -type d -ipath '*solr/*/data' -ls  2>/dev/null`
 
 ### MySQL data for both Fedora and Drupal _OR_ your MySQL root password.
 
- 3. If you have your MySQL `root` password please skip to item 6.
+ 4. If you have your MySQL `root` password find the database values below, you do not need any other username or password for this section.
 
- 4. Finding your Fedora MySQL username and password
-    - words
-    - words
+ 5. Finding your Fedora MySQL username, password, and database
+    - `find / -type f -name 'fedora.fcfg' -exec grep -e 'name="dbUsername"' -e 'name="dbPassword"' -e 'name="jdbcURL"' {} + 2>/dev/null`
+    - This command _will_ print multiple lines. The first three lines are important but please save the rest (just in case).
+
+    Example output:
+     > param name="dbUsername" value="**fedoraDB**"  
+     > param name="jdbcURL" value="jdbc:mysql://localhost/**fedora3**?useUnicode=true&amp;amp;characterEncoding=UTF-8&amp;amp;autoReconnect=true"  
+     > param name="dbPassword" value="**zMgBM6hGwjCeEuPD**"
+
+    - Username: Copy the value from `dbUsername value=`
+    - Password: Copy the value from `dbPassword value=`
+    - Database: Copy from the value `jdbcURL value=` the database name which is directly between the "/" and the only "?"
+
+ 6. Finding your Drupal MySQL username, password, and database
+    - `find / -type f -name 'filter-drupal.xml' -exec grep '<connection' {} + 2>/dev/null`
     
- 5. Finding your Drupal MySQL username and password
-    - words
-    - words
+    Example output:
+      > connection server="localhost" port="3306" dbname="**islandora**" user="**drupalIslandora**" password="**Kjs8n5zQXfPNhZ9k**"
+
+    - Username: copy the value from `user=`
+    - Password: copy the value from `password=`
+    - Database: copy the value from `dbname=`
     
- 6. Finding your Drupal and Fedora database names
-    - words
-    - words
+
 
 ---
 ### Inventory Table
@@ -50,12 +67,13 @@ We present common locations and `terminal` commands to find the data required.  
 |-|--|--|--|
 |1| Fedora Data Location |  |
 |2| Drupal Data Location |  | 
-|3| MySQL `root` Password |  | If available skip other MySQL users/pass
-|4| MySQL Fedora Username |  |
-|4| MySQL Fedora Password |  |
-|5| MySQL Drupal Username |  |
-|5| MySQL Drupal Password |  |
-|6| MySQL Fedora Database |  |
+|3| Solr Data Location |  | 
+|4| MySQL `root` Password |  | If available skip other MySQL users/pass
+|5| MySQL Fedora Username |  |
+|5| MySQL Fedora Password |  |
+|5| MySQL Fedora Database |  |
+|6| MySQL Drupal Username |  |
+|6| MySQL Drupal Password |  |
 |6| MySQL Drupal Database |  |
 ---
 
@@ -90,8 +108,9 @@ We present common locations and `terminal` commands to find the data required.  
 
 > Advanced ways of copying these large files and folders are explored In section Copying Large Folders and Files (i.e., methods faster than `rsync`) .
 
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyODI3ODM5NTksLTE1NjQzOTExNTksNj
-A5NDkwMzk1LC0xMTEyMDcwMTk1LDYxNDc0NTk5OSw4MzQyNDMz
-NDldfQ==
+eyJoaXN0b3J5IjpbLTIwMzc4MTY1NzMsLTEyODI3ODM5NTksLT
+E1NjQzOTExNTksNjA5NDkwMzk1LC0xMTEyMDcwMTk1LDYxNDc0
+NTk5OSw4MzQyNDMzNDldfQ==
 -->
