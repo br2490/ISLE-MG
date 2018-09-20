@@ -102,7 +102,6 @@ We present common locations and `terminal` commands to find the data required.  
 
  3. Fedora Data 
     > These are large directories and copying them takes hours or days. Please plan accordingly and prepare to leave these processes running for some time.
-    > Advanced ways of copying these large files and folders are explored In section Copying Large Folders and Files (i.e., methods faster than `rsync`) .
     - Fedora datastreamStore
         - < >
     - Fedora objectStore
@@ -112,16 +111,13 @@ We present common locations and `terminal` commands to find the data required.  
 
 
 ## Copying Large Folders and Files (advanced users)
-Section is in development.
-	- If your server is local and will not be going over WAN try using `nc`
-	- 
-
-
+  > Section is in development.
+  - If your server is local and will not be going over WAN try using `nc`
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2MDE5NjczNywxMjIwMDA0NTU0LC0yMD
-M3ODE2NTczLC0xMjgyNzgzOTU5LC0xNTY0MzkxMTU5LDYwOTQ5
-MDM5NSwtMTExMjA3MDE5NSw2MTQ3NDU5OTksODM0MjQzMzQ5XX
-0=
+eyJoaXN0b3J5IjpbNzM1Njk2MjUsMjA2MDE5NjczNywxMjIwMD
+A0NTU0LC0yMDM3ODE2NTczLC0xMjgyNzgzOTU5LC0xNTY0Mzkx
+MTU5LDYwOTQ5MDM5NSwtMTExMjA3MDE5NSw2MTQ3NDU5OTksOD
+M0MjQzMzQ5XX0=
 -->
