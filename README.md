@@ -25,8 +25,8 @@ We present common locations and `terminal` commands to find the data required.  
     - Use find: `find / -type d -ipath '*fedora/data' -ls  2>/dev/null`
              
  2. Finding your Drupal data folder  
-    - Common location: `/var/www/` (may be in a sub-folder)
-    - `find / -type f -name 'index.php' -ls  2>/dev/null`
+    - Common location: `/var/www/` (likely in a sub-folder; e.g., html, islandora, etc.)
+    - `grep --include=index.php -rl -e 'Drupal' / 2>/dev/null`
 
  3. Finding your Solr data folder  
     - Common location: `/usr/local/solr`, `/usr/local/tomcat/solr`, or `/usr/local/fedora/solr`
@@ -37,7 +37,7 @@ We present common locations and `terminal` commands to find the data required.  
  4. If you have your MySQL `root` password find the database values below, you do not need any other username or password for this section.
 
  5. Finding your Fedora MySQL username, password, and database
-    - `find / -type f -name 'fedora.fcfg' -exec grep -e 'name="dbUsername"' -e 'name="dbPassword"' -e 'name="jdbcURL"' {} + 2>/dev/null`
+    - `grep --include=fedora.fcfg -rnw -e 'name="dbUsername"' -e 'name="dbPassword"' -e 'name="jdbcURL"' / 2>/dev/null`
     - This command _will_ print multiple lines. The first three lines are important but please save the rest (just in case).
 
     Example output:
@@ -50,7 +50,7 @@ We present common locations and `terminal` commands to find the data required.  
     - Database: Copy from the value `jdbcURL value=` the database name which is directly between the "/" and the only "?"
 
  6. Finding your Drupal MySQL username, password, and database
-    - `find / -type f -name 'filter-drupal.xml' -exec grep '<connection' {} + 2>/dev/null`
+    - `grep --include=filter-drupal.xml -rnw -e 'dbname.*user.*password.*"' / 2>/dev/null`
     
     Example output:
       > connection server="localhost" port="3306" dbname="**islandora**" user="**drupalIslandora**" password="**Kjs8n5zQXfPNhZ9k**"
@@ -80,7 +80,11 @@ We present common locations and `terminal` commands to find the data required.  
 ## Prepare the files you are _required_ to have from your existing Islandora Stack.
  0. Login to your existing Islandora Server. 
     - Change directory to your `home directory` with `cd ~`. 
+    - We will be creating backups in your home directory to find them easily; 
+      - Consider creating a new directory in your home folder: `mkdir isledata && cd isledata` before starting.
+      - In this example your backups are now stored in `~/isledata` (`cd ~/isledata` to return to this location)
     - If you will be copying data to a remote server please have SSH access to that server.
+      - Test your connection to the remote server before starting: `ssh {USER}@{SERVER}` 
 
  1. Generate SQL Dumps 
     > **Note**  you may add your password directly to the commands below as: `-p{PASSWORD}` (no additional space).
@@ -89,14 +93,15 @@ We present common locations and `terminal` commands to find the data required.  
     **Note** If you have your MySQL root password replace {USERNAMES} with `root`
 
      - SQL dump of your Fedora database
-        - `mysqldump -u {FEDORA_USERNAME} -p {FEDORA_DATABASE_NAME} | gzip fedora.sql.gz`
+        - `mysqldump -u {FEDORA_USERNAME} -p {FEDORA_DATABASE_NAME} | gzip > fedora.sql.gz`
      - SQL dump of your Drupal database
-          - `mysqldump -u {DRUPAL_USERNAME} -p {DRUPAL_DATABASE_NAME} | gzip drupal.sql.gz`
+        - `mysqldump -u {DRUPAL_USERNAME} -p {DRUPAL_DATABASE_NAME} | gzip > drupal.sql.gz`
 
  2. Drupal (Islandora) webroot
-      - < >
+      - `tar -zcf drupal-web.tar.gz {DRUPAL_DATA_LOCATION}`
 
- 3. Fedora Data (these are large directories and copying takes time, please plan accordingly)
+ 3. Fedora Data 
+    > These are large directories and copying them takes hours or days. Please plan accordingly and prepare to leave these processes running for some time.
     - Fedora datastreamStore
         - < >
     - Fedora objectStore
@@ -105,12 +110,14 @@ We present common locations and `terminal` commands to find the data required.  
         - < >
 
 
+## Copying Large Folders and Files (advanced users)
 
 > Advanced ways of copying these large files and folders are explored In section Copying Large Folders and Files (i.e., methods faster than `rsync`) .
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIyMDAwNDU1NCwtMjAzNzgxNjU3MywtMT
-I4Mjc4Mzk1OSwtMTU2NDM5MTE1OSw2MDk0OTAzOTUsLTExMTIw
-NzAxOTUsNjE0NzQ1OTk5LDgzNDI0MzM0OV19
+eyJoaXN0b3J5IjpbNTU3NjY4MjA3LDEyMjAwMDQ1NTQsLTIwMz
+c4MTY1NzMsLTEyODI3ODM5NTksLTE1NjQzOTExNTksNjA5NDkw
+Mzk1LC0xMTEyMDcwMTk1LDYxNDc0NTk5OSw4MzQyNDMzNDldfQ
+==
 -->
