@@ -113,14 +113,15 @@ We present common locations and `terminal` commands to find the data required.  
 
 ## Copying Large Folders and Files (advanced users)
 Section is in development.
-	- If you server is local and will not be going over WAN (i.e., the s
+	- If your server is local and will not be going over WAN try using `nc`
+	- 
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNzQ5MjQzODgsMTIyMDAwNDU1NCwtMj
-AzNzgxNjU3MywtMTI4Mjc4Mzk1OSwtMTU2NDM5MTE1OSw2MDk0
-OTAzOTUsLTExMTIwNzAxOTUsNjE0NzQ1OTk5LDgzNDI0MzM0OV
-19
+eyJoaXN0b3J5IjpbMjA2MDE5NjczNywxMjIwMDA0NTU0LC0yMD
+M3ODE2NTczLC0xMjgyNzgzOTU5LC0xNTY0MzkxMTU5LDYwOTQ5
+MDM5NSwtMTExMjA3MDE5NSw2MTQ3NDU5OTksODM0MjQzMzQ5XX
+0=
 -->
