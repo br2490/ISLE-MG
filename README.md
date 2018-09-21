@@ -77,12 +77,14 @@ We present common locations and `terminal` commands to find the data required.  
 |6| MySQL Drupal Database |  |
 ---
 
-## Prepare the files you are _required_ to have from your existing Islandora Stack.
+## Preparing _required_ files from your existing Islandora Stack.
+All commands that are run here are explained in section [Explanation of Commands](#explanation-of-commands)
+
  0. Login to your existing Islandora Server. 
     - Change directory to your `home directory` with `cd ~`. 
     - We will be creating backups in your home directory to find them easily; 
-      - Consider creating a new directory in your home folder: `mkdir isledata && cd isledata` before starting.
-      - In this example your backups are now stored in `~/isledata` (`cd ~/isledata` to return to this location)
+    - Create a new directory in your home folder: `mkdir isledata && cd isledata` before starting.
+      - Your backups are stored in `~/isledata` **(`cd ~/isledata` to return to this location)**
     - If you will be copying data to a remote server please have SSH access to that server.
       - Test your connection to the remote server before starting: `ssh {USER}@{SERVER}` 
 
@@ -91,33 +93,55 @@ We present common locations and `terminal` commands to find the data required.  
     This is **not** recommended as your shell history (e.g., `bash_history`) will have those passwords stored. You may delete your shell history when you are complete (`rm ~\.bash_history`)
 
     **Note** If you have your MySQL root password replace {USERNAMES} with `root`
-
+     - Make to be in our backup location `cd ~/isledata`
      - SQL dump of your Fedora database
         - `mysqldump -u {FEDORA_USERNAME} -p {FEDORA_DATABASE_NAME} | gzip > fedora.sql.gz`
      - SQL dump of your Drupal database
         - `mysqldump -u {DRUPAL_USERNAME} -p {DRUPAL_DATABASE_NAME} | gzip > drupal.sql.gz`
 
  2. Drupal (Islandora) webroot
-      - `tar -zcf drupal-web.tar.gz {DRUPAL_DATA_LOCATION}`
+      - Make to be in our backup location `cd ~/isledata`
+      - `tar -zcf drupal-web.tar.gz -C {DRUPAL_DATA_LOCATION} .`
+        - for example: `tar -zcf drupal-web.tar.gz -C /var/www/html .`
 
  3. Fedora Data 
-    > These are large directories and copying them takes hours or days. Please plan accordingly and prepare to leave these processes running for some time.
+    > These are large directories and copying them _will_ takes several hours or even days. Please plan accordingly and prepare to leave these processes running unattended. It's okay!
+    > For users who are comfortable installing applications please see
+    The following folders are all located in {FEDORA_DATA_LOCATION}
     - Fedora datastreamStore
-        - < >
+        - Due to the size of this folder we will not `tar` it, instead it will be copied to the remote server or to a new directory.
     - Fedora objectStore
-        - < >
+        - Due to the size of this folder we will not `tar` it, instead it will be copied to the remote server or to a new directory.
     - Fedora resourceIndex
-        - < >
+        - Due to the size of this folder we will not `tar` it, instead it will be copied to the remote server or to a new directory.
+
+## Preparing _optional_ files from your existing Islandora Stack.
 
 
-## Copying Large Folders and Files (advanced users)
-  > Section is in development.
-  - If your server is local and will not be going over WAN try using `nc`
+<!-- ## Copying Large Folders and File
+  > This section is intended for advanced users.
+  - Please read http://moo.nac.uci.edu/~hjm/HOWTO_move_data.html#_executive_summary
 
+  - If your server is local and will not be going over WAN try using `nc` combined with `tar`.
+    - `nc` is short for netcat and is UDP transfer, and can achieve near line-speed.
+    - http://moo.nac.uci.edu/~hjm/HOWTO_move_data.html#tarnetcat
+    - You may be tempted to use this over WAN but your data will not be encrypted.
 
+  - If your server is _remote_ use try Globus connect -->
+
+## Explanation of Commands
+Note: this section is a work in progress.
+
+An explanation of the commands that you have been asked to run.
+
+  `mysqldump`
+    `mysqldump` creates a backup (i.e. 'a dump') of a SQL database
+     - we passed these parameters: -u to specify a username, -p to prompt for password, and finally the name of the database to dump. 
+     - the pipe (`|`) routes data: 
+     - in this instance we piped from mysqldump to `gzip` to create a compressed files. Since your SQL database dump is a large text file compression saves disk space (and cuts transmission time to another location). 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzM1Njk2MjUsMjA2MDE5NjczNywxMjIwMD
-A0NTU0LC0yMDM3ODE2NTczLC0xMjgyNzgzOTU5LC0xNTY0Mzkx
-MTU5LDYwOTQ5MDM5NSwtMTExMjA3MDE5NSw2MTQ3NDU5OTksOD
-M0MjQzMzQ5XX0=
+eyJoaXN0b3J5IjpbNTEzODMwNzQ0LDczNTY5NjI1LDIwNjAxOT
+Y3MzcsMTIyMDAwNDU1NCwtMjAzNzgxNjU3MywtMTI4Mjc4Mzk1
+OSwtMTU2NDM5MTE1OSw2MDk0OTAzOTUsLTExMTIwNzAxOTUsNj
+E0NzQ1OTk5LDgzNDI0MzM0OV19
 -->
