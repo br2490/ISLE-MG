@@ -105,9 +105,9 @@ All commands that are run here are explained in section [Explanation of Commands
         - for example: `tar -zcf drupal-web.tar.gz -C /var/www/html .`
 
  3. Fedora Data 
-    > These are large directories and copying them _will_ takes several hours or even days. Please plan accordingly and prepare to leave these processes running unattended. It's okay!
-    > For users who are comfortable installing applications please see
     The following folders are all located in {FEDORA_DATA_LOCATION}
+    > These are large directories and copying them _will_ takes several hours or even days. Please plan accordingly and prepare to leave these processes running unattended. It's okay!
+
     - Fedora datastreamStore
         - Due to the size of this folder we will not `tar` it, instead it will be copied to the remote server or to a new directory.
     - Fedora objectStore
@@ -140,8 +140,8 @@ An explanation of the commands that you have been asked to run.
      - the pipe (`|`) routes data: 
      - in this instance we piped from mysqldump to `gzip` to create a compressed files. Since your SQL database dump is a large text file compression saves disk space (and cuts transmission time to another location). 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTEzODMwNzQ0LDczNTY5NjI1LDIwNjAxOT
-Y3MzcsMTIyMDAwNDU1NCwtMjAzNzgxNjU3MywtMTI4Mjc4Mzk1
-OSwtMTU2NDM5MTE1OSw2MDk0OTAzOTUsLTExMTIwNzAxOTUsNj
-E0NzQ1OTk5LDgzNDI0MzM0OV19
+eyJoaXN0b3J5IjpbLTE5MDkzMDc5NCw1MTM4MzA3NDQsNzM1Nj
+k2MjUsMjA2MDE5NjczNywxMjIwMDA0NTU0LC0yMDM3ODE2NTcz
+LC0xMjgyNzgzOTU5LC0xNTY0MzkxMTU5LDYwOTQ5MDM5NSwtMT
+ExMjA3MDE5NSw2MTQ3NDU5OTksODM0MjQzMzQ5XX0=
 -->
