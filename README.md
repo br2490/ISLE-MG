@@ -118,7 +118,12 @@ All commands that are run here are explained in section [Explanation of Commands
 ## Preparing _optional_ files from your existing Islandora Stack.
 
 4. Solr Data
-5. Fedora GenericSearch (FGS) Transforms
+	- lorem ipsum
+5. Fedora Generic Search (FGS) Transforms
+	- lorem ipsum
+
+## Preparing and launching ISLE with your data
+
 
 <!-- ## Copying Large Folders and File
   > This section is intended for advanced users.
@@ -142,8 +147,8 @@ An explanation of the commands that you have been asked to run.
      - the pipe (`|`) routes data: 
      - in this instance we piped from mysqldump to `gzip` to create a compressed files. Since your SQL database dump is a large text file compression saves disk space (and cuts transmission time to another location). 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODAwOTI4ODY5LDUxMzgzMDc0NCw3MzU2OT
-YyNSwyMDYwMTk2NzM3LDEyMjAwMDQ1NTQsLTIwMzc4MTY1NzMs
-LTEyODI3ODM5NTksLTE1NjQzOTExNTksNjA5NDkwMzk1LC0xMT
-EyMDcwMTk1LDYxNDc0NTk5OSw4MzQyNDMzNDldfQ==
+eyJoaXN0b3J5IjpbLTE4NzA4MTI5OSw1MTM4MzA3NDQsNzM1Nj
+k2MjUsMjA2MDE5NjczNywxMjIwMDA0NTU0LC0yMDM3ODE2NTcz
+LC0xMjgyNzgzOTU5LC0xNTY0MzkxMTU5LDYwOTQ5MDM5NSwtMT
+ExMjA3MDE5NSw2MTQ3NDU5OTksODM0MjQzMzQ5XX0=
 -->
