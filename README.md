@@ -84,7 +84,7 @@ All commands that are run here are explained in section [Explanation of Commands
     - Change directory to your `home directory` with `cd ~`. 
     - We will be creating backups in your home directory to find them easily; 
     - Create a new directory in your home folder: `mkdir isledata && cd isledata` before starting.
-      - Your backups are stored in `~/isledata` **(`cd ~/isledata` to return to this location)**
+      - Your backups are stored in `~/isledata` (`cd ~/isledata` to return to this location)
     - If you will be copying data to a remote server please have SSH access to that server.
       - Test your connection to the remote server before starting: `ssh {USER}@{SERVER}` 
 
@@ -100,11 +100,11 @@ All commands that are run here are explained in section [Explanation of Commands
         - `mysqldump -u {DRUPAL_USERNAME} -p {DRUPAL_DATABASE_NAME} | gzip > drupal.sql.gz`
 
  2. Drupal (Islandora) webroot
-      - Make to be in our backup location `cd ~/isledata`
+      - In our backup location `cd ~/isledata`
       - `tar -zcf drupal-web.tar.gz -C {DRUPAL_DATA_LOCATION} .`
         - for example: `tar -zcf drupal-web.tar.gz -C /var/www/html .`
 
- 3. Fedora Data 
+ 3. Fedora Data  
       The following folders are all located in {FEDORA_DATA_LOCATION}
     > These are large directories and copying them _will_ takes several hours or even days. Please plan accordingly and prepare to leave these processes running unattended. It's okay!
 
