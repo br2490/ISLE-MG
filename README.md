@@ -104,7 +104,12 @@ All commands that are run here are explained in section [Explanation of Commands
       - `tar -zcf drupal-web.tar.gz -C {DRUPAL_DATA_LOCATION} .`
         - for example: `tar -zcf drupal-web.tar.gz -C /var/www/html .`
 
- 3. Fedora Data  
+ 3. Solr Data
+      - In our backup location `cd ~/isledata`
+      - `tar -zcf solr.tar.gz -C {SOLR_DATA_LOCATION} .`
+        - for example: `tar -zcf drupal-web.tar.gz -C /usr/local/solr .`
+
+ 4. Fedora Data  
       The following folders are all located in {FEDORA_DATA_LOCATION}
     > These are large directories and copying them _will_ takes several hours or even days. Please plan accordingly and prepare to leave these processes running unattended. It's okay!
 
@@ -117,8 +122,7 @@ All commands that are run here are explained in section [Explanation of Commands
 
 ## Preparing _optional_ files from your existing Islandora Stack.
 
-4. Solr Data
-	- lorem ipsum
+
 5. Fedora Generic Search (FGS) Transforms
 	- lorem ipsum
 
