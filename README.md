@@ -155,11 +155,11 @@ Run `screen`, in screen launch commands {1-4}. Launch command then `CTRL+A` foll
  1. Copy our backup directory from `~/isledata` to a new location or server
     - rsync `~/isledata`
  2. Copy Fedora's datastreamStore folder
-   - rsync Fedora datastreamStore
+    - rsync Fedora datastreamStore
  3. Copy Fedora's objectStore folder
-   - rsync Fedora objectStore
+    - rsync Fedora objectStore
  4. Copy Fedora's resourceIndex
-   - rsync Fedora resourceIndex
+    - rsync Fedora resourceIndex
 
 ## Launching ISLE with your data
 
@@ -167,10 +167,10 @@ Run `screen`, in screen launch commands {1-4}. Launch command then `CTRL+A` foll
   
  1. ..Git clone ISLE repo.
  2. ..open .env and modify values to something unique with exception of DRUPAL_HASH!; 
-   - Values do not need to match your old Islandora instance - in fact it might be better they DO NOT. Security through something something.
+    - Values do not need to match your old Islandora instance - in fact it might be better they DO NOT. Security through something something.
  3. ..edit tomcat.env and provide creds to login to all Tomcat instances...
  4. ..edit docker-compose.yml to point to your data located in new locations:
-   - Change fedora-ds, os, ri, Solr data, FGS, etc.
+    - Change fedora-ds, os, ri, Solr data, FGS, etc.
  5. ..Launch stack `docker-compose up -d`
  6. ..Import SQL dumps using helper script (IN PROGRESS)
  7. ..Reindex using helper script (IN PROGRESS)
