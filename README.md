@@ -29,6 +29,8 @@ To test the common locations, while logged into your server, type `cd {LOCATION}
 
 ### Locating your Fedora, Drupal (Islandora), and Solr data folders
 
+ 0. Login to your existing Islandora Server. 
+
  1. Finding your Fedora data folder
     - Common locations: `/usr/local/fedora/data` or `/usr/local/tomcat/fedora/data`  
     - Use find: `find / -type d -ipath '*fedora/data' -ls  2>/dev/null`
@@ -148,6 +150,8 @@ Done! Coffee break.
 > This section is STUBBED only. 
 Run `screen`, in screen launch commands {1-4}. Launch command then `CTRL+A` folled by `c` to create a new terminal to run next command; repeat until all commands are running. Detach from `screen` (CTRL+A followed by d) to leave the processes running. 
 
+ 0. Login to your existing Islandora Server. 
+
  1. Copy our backup directory from `~/isledata` to a new location or server
     - rsync `~/isledata`
  2. Copy Fedora's datastreamStore folder
@@ -159,6 +163,18 @@ Run `screen`, in screen launch commands {1-4}. Launch command then `CTRL+A` foll
 
 ## Launching ISLE with your data
 
+ ..Git clone ISLE repo.
+ ..open .env and modify values to something unique with exception of DRUPAL_HASH!; 
+   - Values do not need to match your old Islandora instance - in fact it might be better they DO NOT. Security through something something.
+ ..edit tomcat.env and provide creds to login to all Tomcat instances...
+ ..edit docker-compose.yml to point to your data located in new locations:
+   - Change fedora-ds, os, ri, Solr data, FGS, etc.
+ ..Launch stack `docker-compose up -d`
+ ..Import SQL dumps using helper script (IN PROGRESS)
+ ..Reindex using helper script (IN PROGRESS)
+ ..Run VSETS in isle-apache
+ ..Visit site.
+ ..
 
 <!-- ## Copying Large Folders and File
   > This section is intended for advanced users.
