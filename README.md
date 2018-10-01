@@ -151,7 +151,6 @@ Done! Coffee break.
 Run `screen`, in screen launch commands {1-4}. Launch command then `CTRL+A` folled by `c` to create a new terminal to run next command; repeat until all commands are running. Detach from `screen` (CTRL+A followed by d) to leave the processes running. 
 
  0. Login to your existing Islandora Server. 
-
  1. Copy our backup directory from `~/isledata` to a new location or server
     - rsync `~/isledata`
  2. Copy Fedora's datastreamStore folder
@@ -164,18 +163,38 @@ Run `screen`, in screen launch commands {1-4}. Launch command then `CTRL+A` foll
 ## Launching ISLE with your data
 
  0. Login to your NEW ISLE Server. 
-  
- 1. ..Git clone ISLE repo.
- 2. ..open .env and modify values to something unique with exception of DRUPAL_HASH!; 
-    - Values do not need to match your old Islandora instance - in fact it might be better they DO NOT. Security through something something.
- 3. ..edit tomcat.env and provide creds to login to all Tomcat instances...
- 4. ..edit docker-compose.yml to point to your data located in new locations:
+ 1. The files copied to your server now need to be extracted:
+    - There is no required directory to extract files to.
+      - If you have a large server `/var` is appropriate.
+      - If you have mounted a drive specifically for your data, use that location (e.g., /islandora)
+    - Extract files to your selected location:
+      - Change to your data directory, and return back to it each time (e.g., `cd /islandora`, `cd /opt/ISLE/data`)
+      - DO NOT extract mysql dumps!
+      - Drupal webroot: `mkdir webroot && tar -xf /path/to/isledata/drupal-web.tar.gz`
+      - Solr Cores: `mkdir solr && tar -xf /path/to/isledata/solr-data.tar.gz`
+      - Ignoring XSLTs for now {STUBBBBBB}
+      - Move your Fedora data to the location (note: should be done in step before)
+ 2. Clone ISLE.
+    - While there is no specific directory requirement: /opt or /var work well.
+    - `git clone https://github.com/Islandora-Collaboration-Group/ISLE.git` 
+      - This will create a directory called `ISLE`. 
+
+Using your editor of choice open:
+
+ 3. ISLE: .env and tomcat.env
+    - `cd ISLE` if you have not already changed into the directory
+    - One variable, `DRUPAL_HASH_SALT` _must match_ what is present in your existing `sites/default/settings.php`
+      - Open `settings.php` and search for `$drupal_hash_salt` and copy the result directly to your .env. 
+    - Remaining values do not need to match your old Islandora instance - in fact it might be better they DO NOT.
+    - Edit tomcat.env and provide credentials to login to all Tomcat instances.
+      - Note that access to Tomcat is only available from within your institution's network. No ports should be exposed beside 80 and 443.
+ 4. Edit docker-compose.yml to point to your data located in new locations:
     - Change fedora-ds, os, ri, Solr data, FGS, etc.
- 5. ..Launch stack `docker-compose up -d`
- 6. ..Import SQL dumps using helper script (IN PROGRESS)
- 7. ..Reindex using helper script (IN PROGRESS)
- 8. ..Run VSETS in isle-apache
- 9. ..Visit site.
+ 5. Launch stack `docker-compose up -d`
+ 6. Import SQL dumps using helper script (IN PROGRESS)
+ 7. Reindex using helper script
+ 8. ..Run VSETS in isle-apache (migration VSETS still need work)
+ 9. Visit site.
  10. Just kidding. There is no number 10.
 
 <!-- ## Copying Large Folders and File
