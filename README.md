@@ -144,10 +144,11 @@ Phew!
 Done! Coffee break.
 
 ## Copying Data to a new location or server
-> Using `screen` we will be able to copy these files and then leave the session running on the remote server. Test running `screen` - if the application is installed you will be in a terminal multiplier; hit `CTRL+A` follwed by `d` to detach from it. Type `screen` to reconnect. 
-- If screen is not installed, install it now: `sudo apt-get install screen` or `sudo yum install screen`.
+> Using `screen` we will be able to copy these files and then leave the session running on the remote server. Test running `screen` - if the application is installed you will be in a terminal multiplier; hit `CTRL+A` follwed by `d` to detach from it. Type `screen` to reconnect.
+  - If screen is not installed, install it now: `sudo apt-get install screen` or `sudo yum install screen`.
 
 > This section is STUBBED only. 
+
 Run `screen`, in screen launch commands {1-4}. Launch command then `CTRL+A` folled by `c` to create a new terminal to run next command; repeat until all commands are running. Detach from `screen` (CTRL+A followed by d) to leave the processes running. 
 
  0. Login to your existing Islandora Server. 
