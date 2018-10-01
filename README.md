@@ -188,14 +188,46 @@ Using your editor of choice open:
     - Remaining values do not need to match your old Islandora instance - in fact it might be better they DO NOT.
     - Edit tomcat.env and provide credentials to login to all Tomcat instances.
       - Note that access to Tomcat is only available from within your institution's network. No ports should be exposed beside 80 and 443.
- 4. Edit docker-compose.yml to point to your data located in new locations:
-    - Change fedora-ds, os, ri, Solr data, FGS, etc.
- 5. Launch stack `docker-compose up -d`
- 6. Import SQL dumps using helper script (IN PROGRESS)
- 7. Reindex using helper script
- 8. ..Run VSETS in isle-apache (migration VSETS still need work)
- 9. Visit site.
- 10. Just kidding. There is no number 10.
+ 4. Edit docker-compose.yml volumes to point to your data in in their new locations:
+    - Change Fedora datastreamStore, objectStore, resourceIndex, activemq (optional), XACML (optional):
+    ```
+      - isle-fedora-datastreamStore:/usr/local/fedora/data/datastreamStore # Migrators change this to your local DS folder.
+      - isle-fedora-objectStore:/usr/local/fedora/data/objectStore # Migrators change this to your local OS folder.
+      - isle-fedora-resourceIndex:/usr/local/fedora/data/resourceIndex # Migrators change this to your local RI folder.
+      - isle-fedora-activemq:/usr/local/fedora/data/activemq-data # Migrators change this to your local MQ folder.
+      - isle-fedora-XACML:/usr/local/fedora/data/fedora-xacml-policies
+    ```
+    becomes:
+    ```
+      - path/to/fedora/data/datastreamStore:/usr/local/fedora/data/datastreamStore # Migrators change this to your local DS folder.
+      - path/to/fedora/data/objectStore:/usr/local/fedora/data/objectStore # Migrators change this to your local OS folder.
+      - path/to/fedora/data/resourceIndex:/usr/local/fedora/data/resourceIndex # Migrators change this to your local RI folder.
+      - isle-fedora-activemq:/usr/local/fedora/data/activemq-data # Migrators change this to your local MQ folder.
+      - isle-fedora-XACML:/usr/local/fedora/data/fedora-xacml-policies
+    ```
+    - Change Solr data:
+    ```
+      - isle-solr-data:/usr/local/solr
+    ```
+    becomes:
+    ```
+      - path/to/solr:/usr/local/solr
+    ```
+    - Change Apache
+    ```
+    - isle-apache-data:/var/www/html
+    ```
+    becomes:
+    ```
+      - path/to/html:/var/www/html
+    ```
+ 5. Place your SSL certificate and key in the `config/proxy/ssl-certs` directory (you should delete the ones present)
+    - Open the traefik.toml file and update lines certFile and keyFile changing only the names to match yours.
+ 6. Launch stack `docker-compose up -d`
+ 7. Import SQL dumps using helper script (IN PROGRESS)
+ 8. Reindex using helper script
+ 9. ..Run VSETS in isle-apache (migration VSETS still need work)
+ 10. Visit site.
 
 <!-- ## Copying Large Folders and File
   > This section is intended for advanced users.
